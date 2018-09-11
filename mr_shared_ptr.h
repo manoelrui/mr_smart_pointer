@@ -15,4 +15,25 @@ class shared_ptr {
         unsigned int counter;
 };
 
+template<class T>
+shared_ptr<T>::shared_ptr() {
+
+}
+
+template<class T>
+shared_ptr<T>::shared_ptr(const T* resource) {
+
+}
+
+template<class T>
+shared_ptr<T> shared_ptr<T>::use_count() const {
+    return nullptr;
+}
+
+template <class T>
+shared_ptr<T> shared_ptr<T>::operator=(const shared_ptr<T>& p) {
+    return nullptr;
+}
+
+
 #endif
