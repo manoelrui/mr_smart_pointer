@@ -20,14 +20,14 @@ class shared_ptr {
 };
 
 template<class T>
-shared_ptr<T>::shared_ptr():
-    resource(nullptr) {
+shared_ptr<T>::shared_ptr(): resource(nullptr) {
     this->counter = new unsigned long;
     *(this->counter) = 1;
 }
 
 template<class T>
-shared_ptr<T>::shared_ptr(const shared_ptr<T>& p): resource(p.get()), counter(p.counter) {
+shared_ptr<T>::shared_ptr(const shared_ptr<T>& p): resource(p.get()),
+    counter(p.counter) {
     *(this->counter) = *(this->counter) + 1;
 }
 
@@ -59,6 +59,8 @@ long shared_ptr<T>::use_count() const {
 
 template <class T>
 shared_ptr<T>& shared_ptr<T>::operator=(const shared_ptr<T>& p) {
+    this->~shared_ptr<T>();
+
     this->resource = p.get();
     this->counter = p.counter;
     *(this->counter) = *(this->counter) + 1;
