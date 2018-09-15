@@ -14,13 +14,13 @@ class shared_ptr {
 
     private:
         T* resource;
-        long* counter;
+        unsigned long* counter;
 };
 
 template<class T>
 shared_ptr<T>::shared_ptr():
     resource(nullptr) {
-    this->counter = new long;
+    this->counter = new unsigned long;
     *(this->counter) = 1;
 }
 
