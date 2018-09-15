@@ -76,13 +76,8 @@ T* shared_ptr<T>::get() const {
 
 template<class T>
 void shared_ptr<T>::reset() {
-    if(counter) {
-        *counter = *counter - 1;
-        if(*counter == 0) {
-            delete resource;
-        }
-    }
-    
+    this->~shared_ptr<T>();
+
     resource = nullptr;
     counter = nullptr;
 }
