@@ -14,11 +14,13 @@ int main(int argc, char** argv) {
         std::cout << "Number of instances: " << ptr4.use_count() << std::endl;
     }
     
-    shared_ptr<int> ptr5 = ptr1;
+    std::cout << "Number of instances: " << ptr1.use_count() << std::endl;
+    
+    /*shared_ptr<int> ptr5 = ptr1;
     std::cout << "Number of instances: " << ptr1.use_count() << std::endl;
 
     ptr5.reset();
-    std::cout << "Number of instances: " << ptr1.use_count() << std::endl;
+    std::cout << "Number of instances: " << ptr1.use_count() << std::endl;*/
 
     return 0;
 }

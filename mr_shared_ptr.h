@@ -35,8 +35,9 @@ template<class T>
 shared_ptr<T>::~shared_ptr() {
     if(counter) {
         *counter = *counter - 1;
-        if(*counter == 0 && resource) {
+        if(*counter == 0) {
             delete resource;
+            delete counter;
         }
     }
 }
