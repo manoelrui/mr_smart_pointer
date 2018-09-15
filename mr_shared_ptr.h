@@ -7,7 +7,7 @@ class shared_ptr {
     public:    
         shared_ptr();
         shared_ptr(const shared_ptr<T>& p);
-        shared_ptr(const T* resource);
+        shared_ptr(T* res);
         ~shared_ptr();
         long use_count() const;
         shared_ptr<T>& operator=(const shared_ptr<T>& p);
@@ -43,9 +43,9 @@ shared_ptr<T>::~shared_ptr() {
 }
 
 template<class T>
-shared_ptr<T>::shared_ptr(const T* resource):
-    resource(resource) {
-    counter = new long;
+shared_ptr<T>::shared_ptr(T* res):
+    resource(res) {
+    counter = new unsigned long;
     *counter = 1;
 }
 

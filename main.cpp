@@ -2,7 +2,7 @@
 #include "mr_shared_ptr.h"
 
 int main(int argc, char** argv) {
-    shared_ptr<int> ptr1;
+    shared_ptr<int> ptr1(new int);
     
     {
         shared_ptr<int> ptr2;
