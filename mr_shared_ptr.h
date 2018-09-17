@@ -72,7 +72,7 @@ shared_ptr<T>& shared_ptr<T>::operator=(const shared_ptr<T>& p) {
 
 template <class T>
 T& shared_ptr<T>::operator*() {
-    return *resource;
+    return *get();
 }
 
 template<class T>
