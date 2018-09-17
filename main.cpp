@@ -22,8 +22,11 @@ int main(int argc, char** argv) {
     ptr5.reset();
     std::cout << "Number of instances: " << ptr1.use_count() << std::endl;
 
+    std::cout << "Resource value: " << *ptr1 << std::endl;
+
     ptr1.reset();
     std::cout << "Number of instances: " << ptr1.use_count() << std::endl;
+
 
     return 0;
 }
