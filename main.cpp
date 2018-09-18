@@ -1,6 +1,14 @@
 #include <iostream>
 #include "mr_shared_ptr.h"
 
+struct Foo {
+    Foo(): a(2) {};
+    int a;
+    void print_a() {
+        std::cout << "a value is: " << a << std::endl;
+    }
+};
+
 int main(int argc, char** argv) {
     shared_ptr<int> ptr1(new int);
     
@@ -28,6 +36,9 @@ int main(int argc, char** argv) {
     ptr1.reset();
     std::cout << "Number of instances: " << ptr1.use_count() << std::endl;
 
+    shared_ptr<Foo> foo_ptr(new Foo());
+    (*foo_ptr).print_a();
+    foo_ptr->print_a();
 
     return 0;
 }

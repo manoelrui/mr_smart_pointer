@@ -12,6 +12,7 @@ class shared_ptr {
         long use_count() const;
         shared_ptr<T>& operator=(const shared_ptr<T>& p);
         T& operator*();
+        T* operator->();
         T* get() const;
         void reset();
 
@@ -74,6 +75,12 @@ template <class T>
 T& shared_ptr<T>::operator*() {
     return *get();
 }
+
+template <class T>
+T* shared_ptr<T>::operator->() {
+    return get();
+}
+
 
 template<class T>
 T* shared_ptr<T>::get() const {
