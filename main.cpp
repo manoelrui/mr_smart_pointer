@@ -11,6 +11,12 @@ struct Foo {
 
 int main(int argc, char** argv) {
     shared_ptr<int> ptr1(new int);
+
+    if(ptr1) {
+        std::cout << "Ptr1 is not null" << std::endl; 
+    } else {
+        std::cout << "Ptr1 is null" << std::endl; 
+    }
     
     {
         shared_ptr<int> ptr2;
